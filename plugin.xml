@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+           id="com.cranberrygame.phonegap.plugin.ad.adbuddiz"
+      version="1.0.0">
+    <name>adbuddiz</name>
+    <description>adbuddiz</description>
+    <license>MIT</license>
+    <keywords>phonegap,adbuddiz</keywords>
+
+    <js-module src="www/adbuddiz.js" name="adbuddiz">
+        <clobbers target="window.adbuddiz" />
+    </js-module>
+
+	<!-- android -->
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="AdBuddizPlugin">
+				<param name="android-package" value="com.cranberrygame.plugin.ad.adbuddiz.AdBuddizPlugin"/>
+			</feature>
+		</config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+			<uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+			<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />		
+        </config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<activity android:name="com.purplebrain.adbuddiz.sdk.AdBuddizActivity" 
+					   android:theme="@android:style/Theme.Translucent" />
+        </config-file>
+		<source-file src="src/android/AdBuddizPlugin.java" target-dir="src/com/cranberrygame/plugin/ad/adbuddiz" />      
+	    <source-file src="lib/android/AdBuddiz-2.3.3.jar" target-dir="libs" />	
+	</platform>
+
+	<!-- ios -->
+	<platform name="ios">
+		<config-file target="config.xml" parent="/*">
+			<feature name="AdBuddizPlugin">
+			<param name="ios-package" value="AdBuddizPlugin" />
+			<param name="onload" value="true" />
+			</feature>
+		</config-file>
+		<header-file src="src/ios/AdBuddizPlugin.h" />
+		<source-file src="src/ios/AdBuddizPlugin.m" />
+		
+		<framework src="AdSupport.framework" />		   
+		<framework src="StoreKit.framework" />
+		<framework src="SystemConfiguration.framework" />
+		<framework src="lib/ios/AdBuddiz.framework" custom="true" />
+	</platform>
+	   
+</plugin>
