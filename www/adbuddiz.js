@@ -1,20 +1,20 @@
 var adbuddiz = {
-    init: function(successCallback, errorCallback, publisherKey) {
+    preloadFullScreenAd: function(publisherKey, successCallback, errorCallback) {
         cordova.exec(
             successCallback,
             errorCallback,
             'AdBuddizPlugin',
-            'init',
+            'preloadFullScreenAd',
             [publisherKey]
         ); 
     },
-    showFullScreenAd: function(successCallback, errorCallback) {
+    showFullScreenAd: function(publisherKey, successCallback, errorCallback) {
         cordova.exec(
             successCallback,
             errorCallback,
             'AdBuddizPlugin',
             'showFullScreenAd',
-            []
+            [publisherKey]
         ); 
     }
 }

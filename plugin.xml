@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
            id="com.cranberrygame.phonegap.plugin.ad.adbuddiz"
-      version="1.0.0">
+      version="1.0.2">
     <name>adbuddiz</name>
     <description>adbuddiz</description>
     <license>MIT</license>
@@ -29,7 +29,7 @@
 					   android:theme="@android:style/Theme.Translucent" />
         </config-file>
 		<source-file src="src/android/AdBuddizPlugin.java" target-dir="src/com/cranberrygame/plugin/ad/adbuddiz" />      
-	    <source-file src="lib/android/AdBuddiz-2.3.3.jar" target-dir="libs" />	
+	    <source-file src="src/android/AdBuddiz-2.3.3.jar" target-dir="libs" />	
 	</platform>
 
 	<!-- ios -->
@@ -46,7 +46,7 @@
 		<framework src="AdSupport.framework" />		   
 		<framework src="StoreKit.framework" />
 		<framework src="SystemConfiguration.framework" />
-		<framework src="lib/ios/AdBuddiz.framework" custom="true" />
+		<framework src="src/ios/AdBuddiz.framework" custom="true" />
 	</platform>
 	   
 </plugin>

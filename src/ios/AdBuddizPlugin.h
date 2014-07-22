@@ -3,7 +3,9 @@
 
 @interface AdBuddizPlugin : CDVPlugin
 
-- (void)init: (CDVInvokedUrlCommand*)command;
+@property BOOL preloaded;
+
+- (void)preloadFullScreenAd: (CDVInvokedUrlCommand*)command;
 - (void)showFullScreenAd: (CDVInvokedUrlCommand*)command;
 
 @end
