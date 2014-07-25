@@ -1,3 +1,6 @@
+// cranberrygame@yahoo.com
+// http://www.github.com/cranberrygame
+// MIT Licensed
 #import "AdBuddizPlugin.h"
 //
 #import <AdBuddiz/AdBuddiz.h>

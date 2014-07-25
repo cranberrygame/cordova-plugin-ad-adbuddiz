@@ -3,11 +3,12 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
            id="com.cranberrygame.phonegap.plugin.ad.adbuddiz"
       version="1.0.2">
-    <name>adbuddiz</name>
-    <description>adbuddiz</description>
+    <name>AdBuddiz</name>
+    <description>AdBuddiz</description>
     <license>MIT</license>
-    <keywords>phonegap,adbuddiz</keywords>
-
+    <keywords>phonegap, adbuddiz</keywords>
+    <repo>https://github.com/cranberrygame/com.cranberrygame.phonegap.plugin.ad.adbuddiz</repo>
+	
     <js-module src="www/adbuddiz.js" name="adbuddiz">
         <clobbers target="window.adbuddiz" />
     </js-module>
