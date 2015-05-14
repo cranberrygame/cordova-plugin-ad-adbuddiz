@@ -2,13 +2,13 @@
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
            id="com.cranberrygame.cordova.plugin.ad.adbuddiz"
-      version="1.0.12">
+      version="1.0.13">
 	  
     <name>Cordova AdBuddiz plugin</name>
-    <description>Cordova AdBuddiz plugin</description>
+    <description>show adbuddiz full screen ad</description>
     <author>Sang Ki Kwon (Cranberrygame)</author>		
     <license>MIT</license>
-    <keywords>cordova, plugin, ad, adbuddiz</keywords>
+    <keywords>cordova,plugin,ad,adbuddiz,monetisation</keywords>
     <repo>https://github.com/cranberrygame/cordova-plugin-ad-adbuddiz</repo>
     <issue>https://github.com/cranberrygame/cordova-plugin-ad-adbuddiz/issues</issue> 	
 	<engines>

@@ -83,6 +83,7 @@ document.addEventListener("deviceready", function(){
 
 window.chartboost.preloadFullScreenAd();
 window.chartboost.showFullScreenAd();
+alert(window.adbuddiz.isShowingFullScreenAd());
 ```
 # Examples #
 <a href="https://github.com/cranberrygame/cordova-plugin-ad-adbuddiz/blob/master/example/basic/index.html">example/basic/index.html</a><br>
@@ -96,7 +97,7 @@ https://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/adbuddiz/Cordova
 
 # Useful links #
 
-Plugin For Cordova<br>
+Plugins For Cordova<br>
 http://cranberrygame.github.io?referrer=github
 
 # Credits #
