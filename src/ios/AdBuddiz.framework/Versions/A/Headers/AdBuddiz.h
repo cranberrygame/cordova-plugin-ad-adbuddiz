@@ -109,7 +109,8 @@ typedef enum {
  @endcode
  @param placement, name of the placement
  @see http://publishers.adbuddiz.com/portal/support
- */+ (void)showAd:(NSString*)placement;
+ */
++ (void)showAd:(NSString*)placement;
 
 /*!
  @brief Sets AdBuddizDelegate that will receive events callbacks.

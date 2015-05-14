@@ -1,0 +1,50 @@
+<html>
+<head>
+	<script type="text/javascript" src="cordova.js"></script>
+</head>
+<body>
+
+<script>
+
+var publisherKey = "REPLACE_THIS_WITH_YOUR_PUBLISHER_KEY";
+
+/*
+var publisherKey;
+//android
+if (navigator.userAgent.match(/Android/i)) {
+	publisherKey = "REPLACE_THIS_WITH_YOUR_PUBLISHER_KEY";
+}
+//ios
+else if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {
+	publisherKey = "REPLACE_THIS_WITH_YOUR_PUBLISHER_KEY";
+}
+*/
+
+document.addEventListener("deviceready", function(){
+	//if no license key, 2% ad traffic share for dev support.
+	//you can get free license key from https://play.google.com/store/apps/details?id=com.cranberrygame.pluginsforcordova
+	//window.adbuddiz.setLicenseKey("yourEmailId@yourEmaildDamin.com", "yourFreeLicenseKey");
+
+	window.adbuddiz.setUp(publisherKey);
+	
+	//full screen ad callback
+	window.adbuddiz.onFullScreenAdPreloaded = function() {
+		alert('onFullScreenAdPreloaded');
+	};
+	window.adbuddiz.onFullScreenAdLoaded = function() {
+		alert('onFullScreenAdLoaded');
+	};
+	window.adbuddiz.onFullScreenAdShown = function() {
+		alert('onFullScreenAdShown');
+	};
+	window.adbuddiz.onFullScreenAdHidden = function() {
+		alert('onFullScreenAdHidden');
+	};
+}, false);
+</script>
+
+<p><button onclick="window.adbuddiz.preloadFullScreenAd();">preloadFullScreenAd</button></p>
+<p><button onclick="window.adbuddiz.showFullScreenAd();">showFullScreenAd</button></p>
+
+</body>
+</html>
