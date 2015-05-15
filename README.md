@@ -36,6 +36,9 @@ Plugin ID: com.cranberrygame.cordova.plugin.ad.adbuddiz
 <gap:plugin name="com.cranberrygame.cordova.plugin.ad.adbuddiz" source="plugins.cordova.io" />
 ```
 
+## Construct2 ##
+Download construct2 plugin: https://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/adbuddiz/construct2.html
+
 # Server setting #
 ```c
 ```
@@ -81,9 +84,11 @@ document.addEventListener("deviceready", function(){
 	};
 }, false);
 
-window.chartboost.preloadFullScreenAd();
-window.chartboost.showFullScreenAd();
-alert(window.adbuddiz.isShowingFullScreenAd());
+window.adbuddiz.preloadFullScreenAd();
+window.adbuddiz.showFullScreenAd();
+
+alert(window.adbuddiz.isShowingFullScreenAd());//boolean: true or false
+
 ```
 # Examples #
 <a href="https://github.com/cranberrygame/cordova-plugin-ad-adbuddiz/blob/master/example/basic/index.html">example/basic/index.html</a><br>

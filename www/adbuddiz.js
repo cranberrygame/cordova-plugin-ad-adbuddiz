@@ -29,11 +29,13 @@ var adbuddiz = {
 					}
 					else if (result == "onFullScreenAdShown") {
 						self._isShowingFullScreenAd = true;
+						
 						if (self.onFullScreenAdShown)
 							self.onFullScreenAdShown();
 					}
 					else if (result == "onFullScreenAdHidden") {
 						self._isShowingFullScreenAd = false;
+						
 						if (self.onFullScreenAdHidden)
 							self.onFullScreenAdHidden();
 					}
