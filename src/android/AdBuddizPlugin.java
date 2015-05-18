@@ -94,6 +94,24 @@ public class AdBuddizPlugin extends CordovaPlugin {
 		super.initialize(cordova, webView);
     }
 
+  	@Override
+    public void onPause(boolean multitasking) {		
+        super.onPause(multitasking);
+		//
+    }
+      
+    @Override
+    public void onResume(boolean multitasking) {
+        super.onResume(multitasking);
+		//
+    }
+  	
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+		//
+    }
+	
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
@@ -152,7 +170,11 @@ public class AdBuddizPlugin extends CordovaPlugin {
 		//final String adUnit = args.getString(0);
 		//final String adUnitFullScreen = args.getString(1);				
 		//final boolean isOverlap = args.getBoolean(2);				
-		//final boolean isTest = args.getBoolean(3);				
+		//final boolean isTest = args.getBoolean(3);
+		//final String[] zoneIds = new String[args.getJSONArray(4).length()];
+		//for (int i = 0; i < args.getJSONArray(4).length(); i++) {
+		//	zoneIds[i] = args.getJSONArray(4).getString(i);
+		//}			
 		//Log.d(LOG_TAG, String.format("%s", adUnit));			
 		//Log.d(LOG_TAG, String.format("%s", adUnitFullScreen));
 		//Log.d(LOG_TAG, String.format("%b", isOverlap));

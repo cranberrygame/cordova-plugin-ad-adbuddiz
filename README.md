@@ -1,16 +1,18 @@
 Cordova AdBuddiz plugin
 ====================
 # Overview #
-show adbuddiz full screen ad
+Show adbuddiz full screen ad
 
 [android, ios] [cordova cli] [xdk]
 
-requires adbuddiz account https://www.adbuddiz.com
+Requires adbuddiz account https://www.adbuddiz.com
 
 adbuddiz android SDK 2.4.6
 adbuddiz ios SDK 2.4.6
 
-this is open source cordova plugin.
+This is open source cordova plugin.
+
+You can see Plugins For Cordova in one page: http://cranberrygame.github.io?referrer=github
 
 # Change log #
 ```c
@@ -38,7 +40,8 @@ Plugin ID: com.cranberrygame.cordova.plugin.ad.adbuddiz
 
 ## Construct2 ##
 Download construct2 plugin: https://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/adbuddiz/construct2.html
-
+<br>
+Now all the native plugins are installed automatically: https://plus.google.com/102658703990850475314/posts/XS5jjEApJYV
 # Server setting #
 ```c
 ```
@@ -69,7 +72,6 @@ document.addEventListener("deviceready", function(){
 
 	window.adbuddiz.setUp(publisherKey);
 	
-	//full screen ad callback
 	window.adbuddiz.onFullScreenAdPreloaded = function() {
 		alert('onFullScreenAdPreloaded');
 	};
@@ -98,7 +100,7 @@ alert(window.adbuddiz.isShowingFullScreenAd());//boolean: true or false
 [![](http://img.youtube.com/vi/h4Mka-oJBpM/0.jpg)](https://www.youtube.com/watch?v=h4Mka-oJBpM&feature=youtu.be "Youtube")
 
 You can also run following test apk.
-https://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/adbuddiz/CordovaApp-debug.apk
+https://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/adbuddiz/apk.html
 
 # Useful links #
 
@@ -106,3 +108,4 @@ Plugins For Cordova<br>
 http://cranberrygame.github.io?referrer=github
 
 # Credits #
+

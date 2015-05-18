@@ -37,6 +37,7 @@ static NSString *TEST_PUBLISHER_KEY = @"fdd256bc-1bc7-46a9-9bcb-46073eb668f6";
 	//NSString *adUnitFullScreen = [command.arguments objectAtIndex: 1];
 	//BOOL isOverlap = [[command.arguments objectAtIndex: 2] boolValue];
 	//BOOL isTest = [[command.arguments objectAtIndex: 3] boolValue];
+	//NSArray *zoneIds = [command.arguments objectAtIndex:4];	
 	//NSLog(@"%@", adUnit);
 	//NSLog(@"%@", adUnitFullScreen);
 	//NSLog(@"%d", isOverlap);
