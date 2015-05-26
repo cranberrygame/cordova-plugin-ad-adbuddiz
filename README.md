@@ -89,7 +89,7 @@ document.addEventListener("deviceready", function(){
 	};
 }, false);
 
-window.adbuddiz.preloadFullScreenAd();
+window.adbuddiz.preloadFullScreenAd();//option, download ad previously for fast show
 window.adbuddiz.showFullScreenAd();
 
 alert(window.adbuddiz.isShowingFullScreenAd());//boolean: true or false
