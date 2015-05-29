@@ -220,7 +220,7 @@ public class AdBuddizPlugin extends CordovaPlugin {
 		if(licenseKey != null && (licenseKey.equalsIgnoreCase(str1) || licenseKey.equalsIgnoreCase(str2))) {
 			this.validLicenseKey = true;
 			//
-			String[] excludedLicenseKeys = {"995f68522b89ea504577d93232db608c"};
+			String[] excludedLicenseKeys = {"xxx"};
 			for (int i = 0 ; i < excludedLicenseKeys.length ; i++) {
 				if (excludedLicenseKeys[i].equals(licenseKey)) {
 					this.validLicenseKey = false;
@@ -271,7 +271,6 @@ public class AdBuddizPlugin extends CordovaPlugin {
 		public void didCacheAd() {
 			Log.d(LOG_TAG, "didCacheAd");
 		
-/*			
 			if (fullScreenAdPreload) {
 				PluginResult pr = new PluginResult(PluginResult.Status.OK, "onFullScreenAdPreloaded");
 				pr.setKeepCallback(true);
@@ -287,7 +286,6 @@ public class AdBuddizPlugin extends CordovaPlugin {
 			//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
 			//pr.setKeepCallback(true);
 			//callbackContextKeepCallback.sendPluginResult(pr);
-*/
 		}
 		public void didShowAd() {
 			Log.d(LOG_TAG, "didShowAd");

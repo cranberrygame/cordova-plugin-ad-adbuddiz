@@ -43,7 +43,7 @@ https://build.phonegap.com/ - Apps - [specific project] - Update code - Zip file
 ```
 
 ## Construct2 ##
-Download construct2 plugin: https://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/adbuddiz/construct2.html
+Download construct2 plugin: http://www.paywithapost.de/pay?id=4ef3f2be-26e8-4a04-b826-6680db13a8c8
 <br>
 Now all the native plugins are installed automatically: https://plus.google.com/102658703990850475314/posts/XS5jjEApJYV
 # Server setting #
@@ -91,6 +91,8 @@ document.addEventListener("deviceready", function(){
 
 window.adbuddiz.preloadFullScreenAd();//option, download ad previously for fast show
 window.adbuddiz.showFullScreenAd();
+
+alert(window.adbuddiz.loadedFullScreenAd());//boolean: true or false
 
 alert(window.adbuddiz.isShowingFullScreenAd());//boolean: true or false
 

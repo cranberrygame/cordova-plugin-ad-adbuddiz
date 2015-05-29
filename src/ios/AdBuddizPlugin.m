@@ -74,7 +74,7 @@ static NSString *TEST_PUBLISHER_KEY = @"fdd256bc-1bc7-46a9-9bcb-46073eb668f6";
 	NSString *str2 = [self md5:[NSString stringWithFormat:@"com.cranberrygame.cordova.plugin.ad.chartboost: %@", email]];
 	if(licenseKey_ != Nil && ([licenseKey_ isEqualToString:str1] || [licenseKey_ isEqualToString:str2])){
 		self.validLicenseKey = YES;
-		NSArray *excludedLicenseKeys = [NSArray arrayWithObjects: @"995f68522b89ea504577d93232db608c", nil];
+		NSArray *excludedLicenseKeys = [NSArray arrayWithObjects: @"xxx", nil];
 		for (int i = 0 ; i < [excludedLicenseKeys count] ; i++) {
 			if([[excludedLicenseKeys objectAtIndex:i] isEqualToString:licenseKey]) {
 				self.validLicenseKey = NO;
@@ -138,7 +138,6 @@ static NSString *TEST_PUBLISHER_KEY = @"fdd256bc-1bc7-46a9-9bcb-46073eb668f6";
 - (void) didCacheAd {
 	NSLog(@"%@", @"didCacheAd");
 	
-/*
 	if(fullScreenAdPreload) {
 		CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onFullScreenAdPreloaded"];
 		[pr setKeepCallbackAsBool:YES];
@@ -154,7 +153,6 @@ static NSString *TEST_PUBLISHER_KEY = @"fdd256bc-1bc7-46a9-9bcb-46073eb668f6";
 	//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
 	//[pr setKeepCallbackAsBool:YES];
 	//[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];
-*/	
 }
 
 - (void) didShowAd {

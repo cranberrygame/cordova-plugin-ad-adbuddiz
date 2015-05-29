@@ -1,5 +1,6 @@
 
 var adbuddiz = {
+	_loadedFullScreenAd: false,
 	_isShowingFullScreenAd: false,
 	//
 	setLicenseKey: function(email, licenseKey) {
@@ -24,10 +25,13 @@ var adbuddiz = {
 							self.onFullScreenAdPreloaded();
 					}
 					else if (result == "onFullScreenAdLoaded") {
+						self._loadedFullScreenAd = true;
+						
 						if (self.onFullScreenAdLoaded)
 							self.onFullScreenAdLoaded();
 					}
 					else if (result == "onFullScreenAdShown") {
+						self._loadedFullScreenAd = false;					
 						self._isShowingFullScreenAd = true;
 						
 						if (self.onFullScreenAdShown)
@@ -74,6 +78,9 @@ var adbuddiz = {
             []
         ); 
     },
+	loadedFullScreenAd: function() {
+		return this._loadedFullScreenAd;
+	},	
 	isShowingFullScreenAd: function() {
 		return this._isShowingFullScreenAd;
 	},
