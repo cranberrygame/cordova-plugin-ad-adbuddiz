@@ -94,6 +94,18 @@ public class AdBuddizPlugin extends CordovaPlugin {
 		super.initialize(cordova, webView);
     }
 
+	//@Override
+	//public void onCreate(Bundle savedInstanceState) {//build error
+	//	super.onCreate(savedInstanceState);
+	//	//
+	//}
+	
+	//@Override
+	//public void onStart() {//build error
+	//	super.onStart();
+	//	//
+	//}
+	
   	@Override
     public void onPause(boolean multitasking) {		
         super.onPause(multitasking);
@@ -106,6 +118,12 @@ public class AdBuddizPlugin extends CordovaPlugin {
 		//
     }
   	
+	//@Override
+	//public void onStop() {//build error
+	//	super.onStop();
+	//	//
+	//}
+	
     @Override
     public void onDestroy() {
         super.onDestroy();

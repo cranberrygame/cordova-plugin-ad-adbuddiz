@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
            id="com.cranberrygame.cordova.plugin.ad.adbuddiz"
-      version="1.0.19">
+      version="1.0.20">
 	  
     <name>Cordova AdBuddiz plugin</name>
     <description>Show adbuddiz full screen ad</description>
@@ -38,7 +38,8 @@
 					   android:theme="@android:style/Theme.Translucent" />
         </config-file>
 		
-		<source-file src="src/android/AdBuddizPlugin.java" target-dir="src/com/cranberrygame/cordova/plugin/ad/adbuddiz" />      
+		<source-file src="src/android/AdBuddizPlugin.java" target-dir="src/com/cranberrygame/cordova/plugin/ad/adbuddiz" />
+		
 	    <source-file src="src/android/AdBuddiz-2.4.6.jar" target-dir="libs" />	
 	</platform>
 
@@ -50,6 +51,7 @@
 			<param name="onload" value="true" />
 			</feature>
 		</config-file>
+		
 		<header-file src="src/ios/AdBuddizPlugin.h" />
 		<source-file src="src/ios/AdBuddizPlugin.m" />
 		

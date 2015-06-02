@@ -34,7 +34,7 @@ Plugin ID: com.cranberrygame.cordova.plugin.ad.adbuddiz
 ```
 
 ## Cocoon ##
-https://cocoon.io - Create project - [specific project] - Setting - Plugins - Search - cranberrygame - adbuddiz
+https://cocoon.io - Create project - [specific project] - Setting - Plugins - Search - cranberrygame - adbuddiz - Save
 
 ## Phonegap build service (config.xml) ##
 https://build.phonegap.com/ - Apps - [specific project] - Update code - Zip file including config.xml
