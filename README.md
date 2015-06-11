@@ -20,9 +20,9 @@ You can see Plugins For Cordova in one page: http://cranberrygame.github.io?refe
 # Install plugin #
 
 ## Cordova cli ##
-https://cordova.apache.org/docs/en/edge/guide_cli_index.md.html#The%20Command-Line%20Interface - npm install -g cordova@4.1.2
+https://cordova.apache.org/docs/en/edge/guide_cli_index.md.html#The%20Command-Line%20Interface - npm install -g cordova@5.0.0
 ```c
-cordova plugin add com.cranberrygame.cordova.plugin.ad.adbuddiz
+cordova plugin add cordova-plugin-ad-adbuddiz
 ```
 
 ## Xdk ##
@@ -39,7 +39,7 @@ https://cocoon.io - Create project - [specific project] - Setting - Plugins - Se
 ## Phonegap build service (config.xml) ##
 https://build.phonegap.com/ - Apps - [specific project] - Update code - Zip file including config.xml
 ```c
-<gap:plugin name="com.cranberrygame.cordova.plugin.ad.adbuddiz" source="plugins.cordova.io" />
+<gap:plugin name="cordova-plugin-ad-adbuddiz" source="npm" />
 ```
 
 ## Construct2 ##
@@ -48,10 +48,19 @@ Download construct2 plugin: http://www.paywithapost.de/pay?id=4ef3f2be-26e8-4a04
 Now all the native plugins are installed automatically: https://plus.google.com/102658703990850475314/posts/XS5jjEApJYV
 # Server setting #
 ```c
+[android]
+
+AdBuddiz - Apps - [specific app] - get Publisher Key:
+
+[ios]
+
+itunes - Manage Your Apps - [specific app] - get Apple ID
+
+AdBuddiz - Apps - [specific app] - get Publisher Key
 ```
 
-<img src="https://github.com/cranberrygame/cordova-plugin-ad-adbuddiz/blob/master/doc/publisher_key1.png"><br>
-<img src="https://github.com/cranberrygame/cordova-plugin-ad-adbuddiz/blob/master/doc/publisher_key2.png"><br>
+<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-adbuddiz/master/doc/publisher_key1.png"><br>
+<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-adbuddiz/master/doc/publisher_key2.png"><br>
 
 # API #
 ```javascript
