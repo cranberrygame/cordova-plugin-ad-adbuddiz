@@ -1,0 +1,38 @@
+{
+  "name": "cordova-plugin-ad-adbuddiz",
+  "version": "1.0.37”,
+  "description": "Show adbuddiz full screen ad",
+  "cordova": {
+    "id": "cordova-plugin-ad-adbuddiz",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cranberrygame/cordova-plugin-ad-adbuddiz.git"
+  },
+  "keywords": [
+    "cordova",
+    "plugin",
+    "ad",
+    "adbuddiz",
+    "monetisation",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "cranberrygame",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cranberrygame/cordova-plugin-ad-adbuddiz/issues"
+  },
+  "homepage": "https://github.com/cranberrygame/cordova-plugin-ad-adbuddiz#readme"
+}

@@ -1,6 +1,6 @@
 //
 //  AdBuddizDelegate.h
-//  Copyright (c) 2014 Purple Brain. All rights reserved.
+//  Copyright (c) 2015 Purple Brain. All rights reserved.
 //
 
 typedef enum {
