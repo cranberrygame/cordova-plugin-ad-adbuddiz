@@ -23,27 +23,27 @@ document.addEventListener("deviceready", function(){
 
 	window.adbuddiz.setUp(publisherKey);
 	
-	window.adbuddiz.onFullScreenAdPreloaded = function() {
-		alert('onFullScreenAdPreloaded');
+	window.adbuddiz.onInterstitialAdPreloaded = function() {
+		alert('onInterstitialAdPreloaded');
 	};
-	window.adbuddiz.onFullScreenAdLoaded = function() {
-		alert('onFullScreenAdLoaded');
+	window.adbuddiz.onInterstitialAdLoaded = function() {
+		alert('onInterstitialAdLoaded');
 	};
-	window.adbuddiz.onFullScreenAdShown = function() {
-		alert('onFullScreenAdShown');
+	window.adbuddiz.onInterstitialAdShown = function() {
+		alert('onInterstitialAdShown');
 	};
-	window.adbuddiz.onFullScreenAdHidden = function() {
-		alert('onFullScreenAdHidden');
+	window.adbuddiz.onInterstitialAdHidden = function() {
+		alert('onInterstitialAdHidden');
 	};
 }, false);
 </script>
 
-<p><button onclick="window.adbuddiz.preloadFullScreenAd();">preloadFullScreenAd</button></p>
-<p><button onclick="window.adbuddiz.showFullScreenAd();">showFullScreenAd</button></p>
+<p><button onclick="window.adbuddiz.preloadInterstitialAd();">preloadInterstitialAd</button></p>
+<p><button onclick="window.adbuddiz.showInterstitialAd();">showInterstitialAd</button></p>
 <br>
-<p><button onclick="alert(window.adbuddiz.loadedFullScreenAd());">loadedFullScreenAd</button></p>
+<p><button onclick="alert(window.adbuddiz.loadedInterstitialAd());">loadedInterstitialAd</button></p>
 <br>
-<p><button onclick="alert(window.adbuddiz.isShowingFullScreenAd());">isShowingFullScreenAd</button></p>
+<p><button onclick="alert(window.adbuddiz.isShowingInterstitialAd());">isShowingInterstitialAd</button></p>
 
 </body>
 </html>

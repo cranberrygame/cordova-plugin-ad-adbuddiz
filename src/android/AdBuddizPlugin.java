@@ -88,7 +88,7 @@ public class AdBuddizPlugin extends CordovaPlugin {
 	//
 	protected String publisherKey;
 	//
-	private boolean fullScreenAdPreload;
+	private boolean interstitialAdPreload;
  
     @Override
 	public void pluginInitialize() {
@@ -145,13 +145,13 @@ public class AdBuddizPlugin extends CordovaPlugin {
 
 			return true;
 		}			
-		else if (action.equals("preloadFullScreenAd")) {
-			preloadFullScreenAd(action, args, callbackContext);
+		else if (action.equals("preloadInterstitialAd")) {
+			preloadInterstitialAd(action, args, callbackContext);
 			
 			return true;
 		}
-		else if (action.equals("showFullScreenAd")) {
-			showFullScreenAd(action, args, callbackContext);
+		else if (action.equals("showInterstitialAd")) {
+			showInterstitialAd(action, args, callbackContext);
 						
 			return true;
 		}
@@ -185,10 +185,10 @@ public class AdBuddizPlugin extends CordovaPlugin {
 		//args.getBoolean(1)
 		//JSONObject json = args.optJSONObject(0);
 		//json.optString("adUnitBanner")
-		//json.optString("adUnitFullScreen")
+		//json.optString("adUnitInterstitial")
 		//JSONObject inJson = json.optJSONObject("inJson");
 		//final String adUnitBanner = args.getString(0);
-		//final String adUnitFullScreen = args.getString(1);				
+		//final String adUnitInterstitial = args.getString(1);				
 		//final boolean isOverlap = args.getBoolean(2);				
 		//final boolean isTest = args.getBoolean(3);
 		//final String[] zoneIds = new String[args.getJSONArray(4).length()];
@@ -196,7 +196,7 @@ public class AdBuddizPlugin extends CordovaPlugin {
 		//	zoneIds[i] = args.getJSONArray(4).getString(i);
 		//}			
 		//Log.d(LOG_TAG, String.format("%s", adUnitBanner));			
-		//Log.d(LOG_TAG, String.format("%s", adUnitFullScreen));
+		//Log.d(LOG_TAG, String.format("%s", adUnitInterstitial));
 		//Log.d(LOG_TAG, String.format("%b", isOverlap));
 		//Log.d(LOG_TAG, String.format("%b", isTest));
 		final String publisherKey = args.getString(0);
@@ -212,20 +212,20 @@ public class AdBuddizPlugin extends CordovaPlugin {
 		});
 	}
 	
-	private void preloadFullScreenAd(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+	private void preloadInterstitialAd(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		cordova.getActivity().runOnUiThread(new Runnable(){
 			@Override
 			public void run() {
-				_preloadFullScreenAd();
+				_preloadInterstitialAd();
 			}
 		});
 	}
 
-	private void showFullScreenAd(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+	private void showInterstitialAd(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		cordova.getActivity().runOnUiThread(new Runnable(){
 			@Override
 			public void run() {
-				_showFullScreenAd();
+				_showInterstitialAd();
 			}
 		});
 	}
@@ -275,14 +275,14 @@ public class AdBuddizPlugin extends CordovaPlugin {
 		AdBuddiz.setDelegate(new MyAdBuddizDelegate());		
 	}
 
-	private void _preloadFullScreenAd() {
-		fullScreenAdPreload = true;
+	private void _preloadInterstitialAd() {
+		interstitialAdPreload = true;
 		
 		AdBuddiz.cacheAds(this.cordova.getActivity());
 	}
 
-	private void _showFullScreenAd() {
-		fullScreenAdPreload = false;		
+	private void _showInterstitialAd() {
+		interstitialAdPreload = false;		
 
 		AdBuddiz.showAd(this.cordova.getActivity());					
 	}
@@ -293,8 +293,8 @@ public class AdBuddizPlugin extends CordovaPlugin {
 		public void didCacheAd() {
 			Log.d(LOG_TAG, "didCacheAd");
 		
-			if (fullScreenAdPreload) {
-				PluginResult pr = new PluginResult(PluginResult.Status.OK, "onFullScreenAdPreloaded");
+			if (interstitialAdPreload) {
+				PluginResult pr = new PluginResult(PluginResult.Status.OK, "onInterstitialAdPreloaded");
 				pr.setKeepCallback(true);
 				callbackContextKeepCallback.sendPluginResult(pr);
 				//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
@@ -302,7 +302,7 @@ public class AdBuddizPlugin extends CordovaPlugin {
 				//callbackContextKeepCallback.sendPluginResult(pr);		
 			}
 			
-			PluginResult pr = new PluginResult(PluginResult.Status.OK, "onFullScreenAdLoaded");
+			PluginResult pr = new PluginResult(PluginResult.Status.OK, "onInterstitialAdLoaded");
 			pr.setKeepCallback(true);
 			callbackContextKeepCallback.sendPluginResult(pr);
 			//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
@@ -312,7 +312,7 @@ public class AdBuddizPlugin extends CordovaPlugin {
 		public void didShowAd() {
 			Log.d(LOG_TAG, "didShowAd");
 			
-			PluginResult pr = new PluginResult(PluginResult.Status.OK, "onFullScreenAdShown");
+			PluginResult pr = new PluginResult(PluginResult.Status.OK, "onInterstitialAdShown");
 			pr.setKeepCallback(true);
 			callbackContextKeepCallback.sendPluginResult(pr);
 			//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
@@ -328,7 +328,7 @@ public class AdBuddizPlugin extends CordovaPlugin {
 		public void didHideAd() {
 			Log.d(LOG_TAG, "didHideAd");
 			
-			PluginResult pr = new PluginResult(PluginResult.Status.OK, "onFullScreenAdHidden");
+			PluginResult pr = new PluginResult(PluginResult.Status.OK, "onInterstitialAdHidden");
 			pr.setKeepCallback(true);
 			callbackContextKeepCallback.sendPluginResult(pr);
 			//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);

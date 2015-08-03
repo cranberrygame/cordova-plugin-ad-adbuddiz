@@ -1,7 +1,7 @@
 Cordova AdBuddiz plugin
 ====================
 # Overview #
-Show adbuddiz full screen ad
+Show adbuddiz interstitial ad
 
 [android, ios] [cordova cli] [xdk] [cocoon]
 
@@ -50,20 +50,23 @@ How to install c2 native plugins in xdk, cocoon and cordova cli<br>
 https://plus.google.com/102658703990850475314/posts/XS5jjEApJYV
 
 # Server setting #
+
+## android ##
+
+<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-adbuddiz/master/doc/publisher_key1.png"><br>
+<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-adbuddiz/master/doc/publisher_key2.png"><br>
+
 ```c
-[android]
-
 AdBuddiz - Apps - [specific app] - get Publisher Key:
+```
 
-[ios]
+## ios ##
 
+```c
 itunes - Manage Your Apps - [specific app] - get Apple ID
 
 AdBuddiz - Apps - [specific app] - get Publisher Key
 ```
-
-<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-adbuddiz/master/doc/publisher_key1.png"><br>
-<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-adbuddiz/master/doc/publisher_key2.png"><br>
 
 # API #
 ```javascript
@@ -87,26 +90,26 @@ document.addEventListener("deviceready", function(){
 
 	window.adbuddiz.setUp(publisherKey);
 	
-	window.adbuddiz.onFullScreenAdPreloaded = function() {
-		alert('onFullScreenAdPreloaded');
+	window.adbuddiz.onInterstitialAdPreloaded = function() {
+		alert('onInterstitialAdPreloaded');
 	};
-	window.adbuddiz.onFullScreenAdLoaded = function() {
-		alert('onFullScreenAdLoaded');
+	window.adbuddiz.onInterstitialAdLoaded = function() {
+		alert('onInterstitialAdLoaded');
 	};
-	window.adbuddiz.onFullScreenAdShown = function() {
-		alert('onFullScreenAdShown');
+	window.adbuddiz.onInterstitialAdShown = function() {
+		alert('onInterstitialAdShown');
 	};
-	window.adbuddiz.onFullScreenAdHidden = function() {
-		alert('onFullScreenAdHidden');
+	window.adbuddiz.oInterstitialAdHidden = function() {
+		alert('onInterstitialAdHidden');
 	};
 }, false);
 
-window.adbuddiz.preloadFullScreenAd();//option, download ad previously for fast show
-window.adbuddiz.showFullScreenAd();
+window.adbuddiz.preloadInterstitialAd();//option, download ad previously for fast show
+window.adbuddiz.showInterstitialAd();
 
-alert(window.adbuddiz.loadedFullScreenAd());//boolean: true or false
+alert(window.adbuddiz.loadedInterstitialAd());//boolean: true or false
 
-alert(window.adbuddiz.isShowingFullScreenAd());//boolean: true or false
+alert(window.adbuddiz.isShowingInterstitialAd());//boolean: true or false
 
 ```
 # Examples #

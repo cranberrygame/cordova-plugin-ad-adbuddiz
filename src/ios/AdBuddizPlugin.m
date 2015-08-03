@@ -18,7 +18,7 @@ static NSString *TEST_PUBLISHER_KEY = @"fdd256bc-1bc7-46a9-9bcb-46073eb668f6";
 //
 @synthesize publisherKey;
 //
-@synthesize fullScreenAdPreload;
+@synthesize interstitialAdPreload;
 
 - (void) pluginInitialize {
     [super pluginInitialize];    
@@ -40,12 +40,12 @@ static NSString *TEST_PUBLISHER_KEY = @"fdd256bc-1bc7-46a9-9bcb-46073eb668f6";
     //self.viewController
     //self.webView	
     //NSString *adUnitBanner = [command.arguments objectAtIndex: 0];
-    //NSString *adUnitFullScreen = [command.arguments objectAtIndex: 1];
+    //NSString *adUnitInterstitial = [command.arguments objectAtIndex: 1];
     //BOOL isOverlap = [[command.arguments objectAtIndex: 2] boolValue];
     //BOOL isTest = [[command.arguments objectAtIndex: 3] boolValue];
 	//NSArray *zoneIds = [command.arguments objectAtIndex:4];	
     //NSLog(@"%@", adUnitBanner);
-    //NSLog(@"%@", adUnitFullScreen);
+    //NSLog(@"%@", adUnitInterstitial);
     //NSLog(@"%d", isOverlap);
     //NSLog(@"%d", isTest);
 	NSString* publisherKey = [command.arguments objectAtIndex:0];
@@ -58,15 +58,15 @@ static NSString *TEST_PUBLISHER_KEY = @"fdd256bc-1bc7-46a9-9bcb-46073eb668f6";
     }];
 }
 
-- (void) preloadFullScreenAd: (CDVInvokedUrlCommand*)command {
+- (void) preloadInterstitialAd: (CDVInvokedUrlCommand*)command {
     [self.commandDelegate runInBackground:^{
-		[self _preloadFullScreenAd];
+		[self _preloadInterstitialAd];
     }];
 }
 
-- (void) showFullScreenAd: (CDVInvokedUrlCommand*)command {
+- (void) showInterstitialAd: (CDVInvokedUrlCommand*)command {
     [self.commandDelegate runInBackground:^{
-		[self _showFullScreenAd];
+		[self _showInterstitialAd];
     }];
 }
 
@@ -128,14 +128,14 @@ static NSString *TEST_PUBLISHER_KEY = @"fdd256bc-1bc7-46a9-9bcb-46073eb668f6";
     [AdBuddiz setDelegate:self];
 }
 
--(void) _preloadFullScreenAd {
-	self.fullScreenAdPreload = YES;	
+-(void) _preloadInterstitialAd {
+	self.interstitialAdPreload = YES;	
 	
 	[AdBuddiz cacheAds];
 }
 
--(void) _showFullScreenAd {
-	self.fullScreenAdPreload = NO;	
+-(void) _showInterstitialAd {
+	self.interstitialAdPreload = NO;	
 	
     [AdBuddiz showAd];
 }
@@ -145,8 +145,8 @@ static NSString *TEST_PUBLISHER_KEY = @"fdd256bc-1bc7-46a9-9bcb-46073eb668f6";
 - (void) didCacheAd {
 	NSLog(@"%@", @"didCacheAd");
 	
-	if(fullScreenAdPreload) {
-		CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onFullScreenAdPreloaded"];
+	if(interstitialAdPreload) {
+		CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onInterstitialAdPreloaded"];
 		[pr setKeepCallbackAsBool:YES];
 		[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];
 		//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
@@ -154,7 +154,7 @@ static NSString *TEST_PUBLISHER_KEY = @"fdd256bc-1bc7-46a9-9bcb-46073eb668f6";
 		//[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];			
 	}
 	
-	CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onFullScreenAdLoaded"];
+	CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onInterstitialAdLoaded"];
 	[pr setKeepCallbackAsBool:YES];
 	[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];
 	//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
@@ -165,7 +165,7 @@ static NSString *TEST_PUBLISHER_KEY = @"fdd256bc-1bc7-46a9-9bcb-46073eb668f6";
 - (void) didShowAd {
 	NSLog(@"%@", @"didShowAd");
 	
-	CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onFullScreenAdShown"];
+	CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onInterstitialAdShown"];
 	[pr setKeepCallbackAsBool:YES];
 	[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];
 	//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
@@ -184,7 +184,7 @@ static NSString *TEST_PUBLISHER_KEY = @"fdd256bc-1bc7-46a9-9bcb-46073eb668f6";
 - (void) didHideAd {
 	NSLog(@"%@", @"didHideAd");
 	
-	CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onFullScreenAdHidden"];
+	CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onInterstitialAdHidden"];
 	[pr setKeepCallbackAsBool:YES];
 	[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];
 	//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];

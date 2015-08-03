@@ -16,11 +16,11 @@
 //
 @property NSString *publisherKey;
 //
-@property BOOL fullScreenAdPreload;
+@property BOOL interstitialAdPreload;
 
 - (void) setLicenseKey: (CDVInvokedUrlCommand*)command;
 - (void) setUp:(CDVInvokedUrlCommand*)command;
-- (void) preloadFullScreenAd: (CDVInvokedUrlCommand*)command;
-- (void) showFullScreenAd: (CDVInvokedUrlCommand*)command;
+- (void) preloadInterstitialAd: (CDVInvokedUrlCommand*)command;
+- (void) showInterstitialAd: (CDVInvokedUrlCommand*)command;
 
 @end
