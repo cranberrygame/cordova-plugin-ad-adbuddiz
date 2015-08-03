@@ -99,7 +99,7 @@ document.addEventListener("deviceready", function(){
 	window.adbuddiz.onInterstitialAdShown = function() {
 		alert('onInterstitialAdShown');
 	};
-	window.adbuddiz.oInterstitialAdHidden = function() {
+	window.adbuddiz.onInterstitialAdHidden = function() {
 		alert('onInterstitialAdHidden');
 	};
 }, false);
