@@ -86,7 +86,7 @@ else if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad
 document.addEventListener("deviceready", function(){
 	//if no license key, 2% ad traffic share for dev support.
 	//you can get paid license key: https://cranberrygame.github.io/request_cordova_ad_plugin_paid_license_key
-	//window.adbuddiz.setLicenseKey("yourEmailId@yourEmaildDamin.com", "yourFreeLicenseKey");
+	//window.adbuddiz.setLicenseKey("yourEmailId@yourEmaildDamin.com", "yourLicenseKey");
 
 	window.adbuddiz.setUp(publisherKey);
 	

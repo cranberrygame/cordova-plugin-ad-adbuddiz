@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
            id="cordova-plugin-ad-adbuddiz"
-      version="1.0.40">
+      version="1.0.41">
 	  
     <name>Cordova AdBuddiz plugin</name>
     <description>Show adbuddiz interstitial ad</description>
