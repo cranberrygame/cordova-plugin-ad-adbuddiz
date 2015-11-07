@@ -4,6 +4,7 @@
 //
 
 #import <AdBuddiz/AdBuddizDelegate.h>
+#import <AdBuddiz/AdBuddizRewardedVideo.h>
 
 typedef enum {
     ABLogLevelInfo = 1,
@@ -12,6 +13,8 @@ typedef enum {
 } ABLogLevel;
 
 @interface AdBuddiz : NSObject
+
+#pragma mark - Config
 
 /*!
  @brief Set AdBuddiz SDK log level.
@@ -54,6 +57,8 @@ typedef enum {
  @see http://publishers.adbuddiz.com/portal/support
  */
 + (void)setTestModeActive;
+
+#pragma mark - Interstitial
 
 /*!
 @brief Initializes AdBuddiz SDK. Call it in your app delegate in <i>application: applicationDidBecomeActive:</i>.
@@ -134,5 +139,9 @@ typedef enum {
  @see http://publishers.adbuddiz.com/portal/support
  */
 + (NSString *)nameForError:(AdBuddizError)error;
+
+#pragma mark - Rewarded Video
+
++ (AdBuddizRewardedVideo *)RewardedVideo;
 
 @end
