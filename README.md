@@ -7,8 +7,8 @@ Show adbuddiz interstitial ad
 
 Requires adbuddiz account https://www.adbuddiz.com
 
-adbuddiz android SDK 3.0.9
-adbuddiz ios SDK 2.5.6
+adbuddiz android SDK 3.1.3
+adbuddiz ios SDK 2.5.3
 
 This is open source cordova plugin.
 
@@ -16,6 +16,8 @@ You can see Plugins For Cordova in one page: http://cranberrygame.github.io?refe
 
 # Change log #
 ```c
+1.0.42
+	Updated SDK (adbuddiz android SDK 3.1.3, adbuddiz ios SDK 2.5.3)
 ```
 # Install plugin #
 
@@ -27,11 +29,10 @@ cordova plugin add cordova-plugin-ad-adbuddiz
 ```
 
 ## Xdk ##
-https://software.intel.com/en-us/intel-xdk - Download XDK - XDK PORJECTS - [specific project] - CORDOVA HYBRID MOBILE APP SETTINGS - Plugins - Third Party Plugins - Add a Third Party Plugin - Get Plugin from the Web -
+https://software.intel.com/en-us/intel-xdk - Download XDK - XDK PORJECTS - [specific project] - CORDOVA HYBRID MOBILE APP SETTINGS - Plugin Management - Add Plugins to this Project - Third Party Plugins -
 ```c
-Name: adbuddiz
-Plugin ID: com.cranberrygame.cordova.plugin.ad.adbuddiz
-[v] Plugin is located in the Apache Cordova Plugins Registry
+Plugin Source: Cordova plugin registry
+Plugin ID: cordova-plugin-ad-adbuddiz
 ```
 
 ## Cocoon ##
@@ -124,7 +125,7 @@ https://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/adbuddiz/apk.htm
 
 # Useful links #
 
-Plugins For Cordova<br>
+Cordova Plugins<br>
 http://cranberrygame.github.io?referrer=github
 
 # Credits #

@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
            id="cordova-plugin-ad-adbuddiz"
-      version="1.0.41">
+      version="1.0.42">
 	  
     <name>Cordova AdBuddiz plugin</name>
     <description>Show adbuddiz interstitial ad</description>
@@ -40,7 +40,7 @@
 		
 		<source-file src="src/android/AdBuddizPlugin.java" target-dir="src/com/cranberrygame/cordova/plugin/ad/adbuddiz" />
 		
-	    <source-file src="src/android/AdBuddiz-3.0.9.jar" target-dir="libs" />	
+	    <source-file src="src/android/AdBuddiz-3.1.3.jar" target-dir="libs" />	
 	</platform>
 
 	<!-- ios -->
