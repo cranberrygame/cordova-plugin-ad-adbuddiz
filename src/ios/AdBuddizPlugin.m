@@ -19,6 +19,7 @@ static NSString *TEST_PUBLISHER_KEY = @"fdd256bc-1bc7-46a9-9bcb-46073eb668f6";
 @synthesize publisherKey;
 //
 @synthesize interstitialAdPreload;
+@synthesize rewardedVideoAdPreload;
 
 - (void) pluginInitialize {
     [super pluginInitialize];    

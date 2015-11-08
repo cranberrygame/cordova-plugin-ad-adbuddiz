@@ -17,7 +17,7 @@
 @property NSString *publisherKey;
 //
 @property BOOL interstitialAdPreload;
-@synthesize rewardedVideoAdPreload;
+@property BOOL rewardedVideoAdPreload;
 
 - (void) setLicenseKey: (CDVInvokedUrlCommand*)command;
 - (void) setUp:(CDVInvokedUrlCommand*)command;
