@@ -1,7 +1,9 @@
 
 var adbuddiz = {
 	_loadedInterstitialAd: false,
+	_loadedRewardedVideoAd: false,	
 	_isShowingInterstitialAd: false,
+	_isShowingRewardedVideoAd: false,	
 	//
 	setLicenseKey: function(email, licenseKey) {
 		var self = this;	
@@ -59,7 +61,35 @@ var adbuddiz = {
 //cranberrygame end							
 						if (self.onInterstitialAdHidden)
 							self.onInterstitialAdHidden();
+					}					
+					//
+					else if (event == "onRewardedVideoAdPreloaded") {
+						if (self.onRewardedVideoAdPreloaded)
+							self.onRewardedVideoAdPreloaded();
 					}
+					else if (event == "onRewardedVideoAdLoaded") {
+						self._loadedRewardedVideoAd = true;
+
+						if (self.onRewardedVideoAdLoaded)
+							self.onRewardedVideoAdLoaded();
+					}
+					else if (event == "onRewardedVideoAdShown") {
+						self._loadedRewardedVideoAd = false;
+						self._isShowingRewardedVideoAd = true;
+					
+						if (self.onRewardedVideoAdShown)
+							self.onRewardedVideoAdShown();
+					}
+					else if (event == "onRewardedVideoAdHidden") {
+						self._isShowingRewardedVideoAd = false;
+					
+						 if (self.onRewardedVideoAdHidden)
+							self.onRewardedVideoAdHidden();
+					}
+					else if (event == "onRewardedVideoAdCompleted") {
+						if (self.onRewardedVideoAdCompleted)
+							self.onRewardedVideoAdCompleted();
+					}							
 				}
 				else {
 					//var event = result["event"];
@@ -116,6 +146,24 @@ var adbuddiz = {
             [location]
         ); 
     },
+	preloadRewardedVideoAd: function(location) {
+        cordova.exec(
+			null,
+            null,
+            'AdBuddizPlugin',
+            'preloadRewardedVideoAd',
+            [location]
+        ); 
+    },
+    showRewardedVideoAd: function(location) {
+		cordova.exec(
+			null,
+            null,
+            'AdBuddizPlugin',
+            'showRewardedVideoAd',
+            [location]
+        ); 
+    },	
 //cranberrygame start; deprecated	
 	loadedFullScreenAd: function() {
 		return this._loadedInterstitialAd;
@@ -130,6 +178,12 @@ var adbuddiz = {
 	isShowingInterstitialAd: function() {
 		return this._isShowingInterstitialAd;
 	},
+	loadedRewardedVideoAd: function() {
+		return this._loadedRewardedVideoAd;
+	},
+	isShowingRewardedVideoAd: function() {
+		return this._isShowingRewardedVideoAd;
+	},	
 //cranberrygame start; deprecated	
 	onFullScreenAdPreloaded: null,
 	onFullScreenAdLoaded: null,
@@ -139,7 +193,13 @@ var adbuddiz = {
 	onInterstitialAdPreloaded: null,
 	onInterstitialAdLoaded: null,
 	onInterstitialAdShown: null,
-	onInterstitialAdHidden: null
+	onInterstitialAdHidden: null,
+	//
+	onRewardedVideoAdPreloaded: null,
+	onRewardedVideoAdLoaded: null,
+	onRewardedVideoAdShown: null,
+	onRewardedVideoAdHidden: null,
+	onRewardedVideoAdCompleted: null	
 }
 
 module.exports = adbuddiz;

@@ -70,6 +70,22 @@ static NSString *TEST_PUBLISHER_KEY = @"fdd256bc-1bc7-46a9-9bcb-46073eb668f6";
     }];
 }
 
+- (void) preloadRewardedVideoAd: (CDVInvokedUrlCommand*)command {
+/*
+   [self.commandDelegate runInBackground:^{
+		[self _preloadRewardedVideoAd];
+    }];
+*/	
+}
+
+- (void) showRewardedVideoAd: (CDVInvokedUrlCommand*)command {
+/*
+    //[self.commandDelegate runInBackground:^{
+		[self _showRewardedVideoAd];
+    //}];
+*/	
+}
+
 - (void) _setLicenseKey:(NSString *)email aLicenseKey:(NSString *)licenseKey {
 	self.email = email;
 	self.licenseKey_ = licenseKey;
@@ -140,6 +156,22 @@ static NSString *TEST_PUBLISHER_KEY = @"fdd256bc-1bc7-46a9-9bcb-46073eb668f6";
     [AdBuddiz showAd];
 }
 
+-(void) _preloadRewardedVideoAd {
+/*
+	self.rewardedVideoAdPreload = YES;	
+	
+    [Chartboost cacheRewardedVideo:location];	
+*/	
+}
+
+-(void) _showRewardedVideoAd {
+/*
+	self.rewardedVideoAdPreload = NO;	
+	
+	[Chartboost showRewardedVideo:location];
+*/	
+}
+
 //AdBuddizDelegate
 
 - (void) didCacheAd {
@@ -191,5 +223,133 @@ static NSString *TEST_PUBLISHER_KEY = @"fdd256bc-1bc7-46a9-9bcb-46073eb668f6";
 	//[pr setKeepCallbackAsBool:YES];
 	//[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];	
 }
+
+/*
+- (void) didCacheRewardedVideo:(CBLocation)location {
+	NSLog(@"%@", @"didCacheRewardedVideo");
+
+	if(moreAppsAdPreload) {
+		NSDictionary* result = @{
+			@"event":@"onRewardedVideoAdPreloaded",
+			@"message":location
+		};	
+		//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onRewardedVideoAdPreloaded"];
+		CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
+		[pr setKeepCallbackAsBool:YES];
+		[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];
+		//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+		//[pr setKeepCallbackAsBool:YES];
+		//[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];			
+	}
+	
+	NSDictionary* result = @{
+		@"event":@"onRewardedVideoAdLoaded",
+		@"message":location
+	};	
+	//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onRewardedVideoAdLoaded"];
+	CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
+	[pr setKeepCallbackAsBool:YES];
+	[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];
+	//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+	//[pr setKeepCallbackAsBool:YES];
+	//[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];
+}
+
+- (void) didFailToLoadRewardedVideo:(NSString *)location withError:(CBLoadError)error {
+    switch(error){
+        case CBLoadErrorInternetUnavailable: {
+            NSLog(@"Failed to load Rewarded Video, no Internet connection !");
+        } break;
+        case CBLoadErrorInternal: {
+            NSLog(@"Failed to load Rewarded Video, internal error !");
+        } break;
+        case CBLoadErrorNetworkFailure: {
+            NSLog(@"Failed to load Rewarded Video, network error !");
+        } break;
+        case CBLoadErrorWrongOrientation: {
+            NSLog(@"Failed to load Rewarded Video, wrong orientation !");
+        } break;
+        case CBLoadErrorTooManyConnections: {
+            NSLog(@"Failed to load Rewarded Video, too many connections !");
+        } break;
+        case CBLoadErrorFirstSessionInterstitialsDisabled: {
+            NSLog(@"Failed to load Rewarded Video, first session !");
+        } break;
+        case CBLoadErrorNoAdFound : {
+            NSLog(@"Failed to load Rewarded Video, no ad found !");
+        } break;
+        case CBLoadErrorSessionNotStarted : {
+            NSLog(@"Failed to load Rewarded Video, session not started !");
+        } break;
+        case CBLoadErrorNoLocationFound : {
+            NSLog(@"Failed to load Rewarded Video, missing location parameter !");
+        } break;
+        default: {
+            NSLog(@"Failed to load Rewarded Video, unknown error !");
+        }
+    }
+}
+
+- (BOOL) shouldDisplayRewardedVideo:(CBLocation)location {
+    return YES;
+}
+
+- (void) didDisplayRewardedVideo:(CBLocation)location {
+	NSLog(@"%@", @"didDisplayRewardedVideo");
+	
+	NSDictionary* result = @{
+		@"event":@"onRewardedVideoAdShown",
+		@"message":location
+	};	
+	//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onRewardedVideoAdShown"];
+	CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
+	[pr setKeepCallbackAsBool:YES];
+	[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];
+	//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+	//[pr setKeepCallbackAsBool:YES];
+	//[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];
+}
+
+- (void) didClickRewardedVideo:(CBLocation)location {
+	NSLog(@"%@", @"didClickRewardedVideo");
+}
+
+- (void) didCloseRewardedVideo:(CBLocation)location {
+	NSLog(@"%@", @"didCloseRewardedVideo");
+}
+
+- (void) didDismissRewardedVideo:(CBLocation)location {
+	NSLog(@"%@", @"didDismissRewardedVideo");
+	
+	NSDictionary* result = @{
+		@"event":@"onRewardedVideoAdHidden",
+		@"message":location
+	};	
+	//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onRewardedVideoAdHidden"];
+	CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
+	[pr setKeepCallbackAsBool:YES];
+	[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];
+	//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+	//[pr setKeepCallbackAsBool:YES];
+	//[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];
+}
+
+- (void) didCompleteRewardedVideo:(CBLocation)location withReward:(int)reward {
+    //NSLog(@"completed rewarded video view at location %@ with reward amount %d", location, reward);
+	NSLog(@"%@", @"didCompleteRewardedVideo");
+	
+	NSDictionary* result = @{
+		@"event":@"onRewardedVideoAdCompleted",
+		@"message":location
+	};	
+	//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onRewardedVideoAdCompleted"];
+	CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
+	[pr setKeepCallbackAsBool:YES];
+	[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];
+	//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+	//[pr setKeepCallbackAsBool:YES];
+	//[self.commandDelegate sendPluginResult:pr callbackId:callbackIdKeepCallback];
+}
+*/
 
 @end

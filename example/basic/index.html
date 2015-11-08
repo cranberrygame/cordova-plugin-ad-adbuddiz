@@ -35,15 +35,36 @@ document.addEventListener("deviceready", function(){
 	window.adbuddiz.onInterstitialAdHidden = function() {
 		alert('onInterstitialAdHidden');
 	};
+	//
+	window.adbuddiz.onRewardedVideoAdPreloaded = function() {
+		alert('onRewardedVideoAdPreloaded');
+	};
+	window.adbuddiz.onRewardedVideoAdLoaded = function() {
+		alert('onRewardedVideoAdLoaded');
+	};
+	window.adbuddiz.onRewardedVideoAdShown = function() {
+		alert('onRewardedVideoAdShown');
+	};
+	window.adbuddiz.onRewardedVideoAdHidden = function() {
+		alert('onRewardedVideoAdHidden');
+	};	
+	window.adbuddiz.onRewardedVideoAdCompleted = function() {
+		alert('onRewardedVideoAdCompleted');
+	};	
 }, false);
 </script>
 
 <p><button onclick="window.adbuddiz.preloadInterstitialAd();">preloadInterstitialAd</button></p>
 <p><button onclick="window.adbuddiz.showInterstitialAd();">showInterstitialAd</button></p>
 <br>
+<p><button onclick="window.adbuddiz.preloadRewardedVideoAd();">preloadRewardedVideoAd</button></p>
+<p><button onclick="window.adbuddiz.showRewardedVideoAd();">showRewardedVideoAd</button></p>
+<br>
 <p><button onclick="alert(window.adbuddiz.loadedInterstitialAd());">loadedInterstitialAd</button></p>
+<p><button onclick="alert(window.adbuddiz.loadedRewardedVideoAd());">loadedRewardedVideoAd</button></p>
 <br>
 <p><button onclick="alert(window.adbuddiz.isShowingInterstitialAd());">isShowingInterstitialAd</button></p>
+<p><button onclick="alert(window.adbuddiz.isShowingRewardedVideoAd());">isShowingRewardedVideoAd</button></p>
 
 </body>
 </html>

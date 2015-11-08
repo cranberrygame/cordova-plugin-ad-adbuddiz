@@ -18,6 +18,8 @@ import android.util.Log;
 import com.purplebrain.adbuddiz.sdk.AdBuddiz;
 import com.purplebrain.adbuddiz.sdk.AdBuddizDelegate;
 import com.purplebrain.adbuddiz.sdk.AdBuddizError;
+import com.purplebrain.adbuddiz.sdk.AdBuddizRewardedVideoDelegate;
+import com.purplebrain.adbuddiz.sdk.AdBuddizRewardedVideoError;
 //md5
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -88,7 +90,8 @@ public class AdBuddizPlugin extends CordovaPlugin {
 	//
 	protected String publisherKey;
 	//
-	private boolean interstitialAdPreload;
+	protected boolean interstitialAdPreload;
+	protected boolean rewardedVideoAdPreload;	
  
     @Override
 	public void pluginInitialize() {
@@ -155,6 +158,16 @@ public class AdBuddizPlugin extends CordovaPlugin {
 						
 			return true;
 		}
+		else if (action.equals("preloadRewardedVideoAd")) {
+			preloadRewardedVideoAd(action, args, callbackContext);
+			
+			return true;
+		}
+		else if (action.equals("showRewardedVideoAd")) {
+			showRewardedVideoAd(action, args, callbackContext);
+						
+			return true;
+		}		
 		
 		return false; // Returning false results in a "MethodNotFound" error.
 	}
@@ -230,6 +243,24 @@ public class AdBuddizPlugin extends CordovaPlugin {
 		});
 	}
 
+	private void preloadRewardedVideoAd(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+		cordova.getActivity().runOnUiThread(new Runnable(){
+			@Override
+			public void run() {
+				_preloadRewardedVideoAd();
+			}
+		});
+	}
+
+	private void showRewardedVideoAd(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+		cordova.getActivity().runOnUiThread(new Runnable(){
+			@Override
+			public void run() {
+				_showRewardedVideoAd();
+			}
+		});
+	}
+	
 	public void _setLicenseKey(String email, String licenseKey) {
 		this.email = email;
 		this.licenseKey = licenseKey;
@@ -272,7 +303,8 @@ public class AdBuddizPlugin extends CordovaPlugin {
 		}
 		
 		AdBuddiz.setPublisherKey(this.publisherKey);
-		AdBuddiz.setDelegate(new MyAdBuddizDelegate());		
+		AdBuddiz.setDelegate(new MyAdBuddizDelegate());
+		AdBuddiz.RewardedVideo.setDelegate(new MyAdBuddizRewardedVideoDelegate());
 	}
 
 	private void _preloadInterstitialAd() {
@@ -285,6 +317,21 @@ public class AdBuddizPlugin extends CordovaPlugin {
 		interstitialAdPreload = false;		
 
 		AdBuddiz.showAd(this.cordova.getActivity());					
+	}
+	
+	private void _preloadRewardedVideoAd() {
+		rewardedVideoAdPreload = true;
+		
+		AdBuddiz.RewardedVideo.fetch(this.cordova.getActivity());
+	}
+
+	private void _showRewardedVideoAd() {
+//		if(!rewardedVideoAdPreload)
+//			AdBuddiz.RewardedVideo.fetch(this.cordova.getActivity());
+	
+		rewardedVideoAdPreload = false;
+
+		AdBuddiz.RewardedVideo.show(this.cordova.getActivity());
 	}
 	
 	class MyAdBuddizDelegate implements AdBuddizDelegate {
@@ -335,5 +382,49 @@ public class AdBuddizPlugin extends CordovaPlugin {
 			//pr.setKeepCallback(true);
 			//callbackContextKeepCallback.sendPluginResult(pr);	
 		}
-	}	
+	}
+
+	class MyAdBuddizRewardedVideoDelegate implements AdBuddizRewardedVideoDelegate {
+		public MyAdBuddizRewardedVideoDelegate() {
+		}
+
+		public void didFetch() {
+			Log.d(LOG_TAG, "didFetch");
+			
+			if (rewardedVideoAdPreload) {
+				PluginResult pr = new PluginResult(PluginResult.Status.OK, "onRewardedVideoAdPreloaded");
+				pr.setKeepCallback(true);
+				callbackContextKeepCallback.sendPluginResult(pr);
+				//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
+				//pr.setKeepCallback(true);
+				//callbackContextKeepCallback.sendPluginResult(pr);		
+			}
+			
+			PluginResult pr = new PluginResult(PluginResult.Status.OK, "onRewardedVideoAdLoaded");
+			pr.setKeepCallback(true);
+			callbackContextKeepCallback.sendPluginResult(pr);
+			//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
+			//pr.setKeepCallback(true);
+			//callbackContextKeepCallback.sendPluginResult(pr);			
+		}
+
+		public void didFail(AdBuddizRewardedVideoError error) {
+			Log.d(LOG_TAG, "didFail");
+		}
+
+		public void didComplete() {
+			Log.d(LOG_TAG, "didComplete");
+			
+			PluginResult pr = new PluginResult(PluginResult.Status.OK, "onRewardedVideoAdCompleted");
+			pr.setKeepCallback(true);
+			callbackContextKeepCallback.sendPluginResult(pr);
+			//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
+			//pr.setKeepCallback(true);
+			//callbackContextKeepCallback.sendPluginResult(pr);				
+		}
+		
+		public void didNotComplete() {
+			Log.d(LOG_TAG, "didNotComplete");
+		}		
+	}		
 }

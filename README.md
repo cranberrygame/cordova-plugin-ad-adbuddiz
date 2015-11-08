@@ -18,6 +18,7 @@ You can see Plugins For Cordova in one page: http://cranberrygame.github.io?refe
 ```c
 1.0.42
 	Updated SDK (adbuddiz android SDK 3.1.3, adbuddiz ios SDK 2.5.3)
+	Supports rewarded video ad (android only)
 ```
 # Install plugin #
 
@@ -103,14 +104,35 @@ document.addEventListener("deviceready", function(){
 	window.adbuddiz.onInterstitialAdHidden = function() {
 		alert('onInterstitialAdHidden');
 	};
+	//
+	window.adbuddiz.onRewardedVideoAdPreloaded = function() {
+		alert('onRewardedVideoAdPreloaded');
+	};
+	window.adbuddiz.onRewardedVideoAdLoaded = function() {
+		alert('onRewardedVideoAdLoaded');
+	};
+	window.adbuddiz.onRewardedVideoAdShown = function() {
+		alert('onRewardedVideoAdShown');
+	};
+	window.adbuddiz.onRewardedVideoAdHidden = function() {
+		alert('onRewardedVideoAdHidden');
+	};	
+	window.adbuddiz.onRewardedVideoAdCompleted = function() {
+		alert('onRewardedVideoAdCompleted');
+	};	
 }, false);
 
 window.adbuddiz.preloadInterstitialAd();//option, download ad previously for fast show
 window.adbuddiz.showInterstitialAd();
 
+window.adbuddiz.preloadRewardedVideoAd();//option, download ad previously for fast show
+window.adbuddiz.showRewardedVideoAd('Default');
+
 alert(window.adbuddiz.loadedInterstitialAd());//boolean: true or false
+alert(window.adbuddiz.loadedRewardedVideoAd());//boolean: true or false
 
 alert(window.adbuddiz.isShowingInterstitialAd());//boolean: true or false
+alert(window.adbuddiz.isShowingRewardedVideoAd());//boolean: true or false
 
 ```
 # Examples #

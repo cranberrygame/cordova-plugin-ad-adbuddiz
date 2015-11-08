@@ -1,7 +1,7 @@
 {
   "name": "cordova-plugin-ad-adbuddiz",
-  "version": "1.0.42",
-  "description": "Show adbuddiz interstitial ad",
+  "version": "1.0.43",
+  "description": "Show adbuddiz interstitial ad and rewarded video ad.",
   "cordova": {
     "id": "cordova-plugin-ad-adbuddiz",
     "platforms": [
