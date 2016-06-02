@@ -19,6 +19,8 @@ You can see Cordova Plugins in one page: http://cranberrygame.github.io?referrer
 1.0.42
 	Updated SDK (adbuddiz android SDK 3.1.3, adbuddiz ios SDK 2.5.3)
 	Supports rewarded video ad (android only)
+1.0.45
+	Fixed onRewardedVideoAdCompleted not working issue.
 ```
 # Install plugin #
 
